@@ -1,1 +1,18 @@
+div {
+  background-color: #595b5e;
+  float: left;
+}
 
+.wrapper {
+  background-color: #F0F0F0;
+  border: 1px solid #000;
+}
+
+.draw {
+  background-color: red;
+}
+
+button {
+  display: block;
+  margin-bottom: 20px;
+}
