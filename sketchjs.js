@@ -1,3 +1,12 @@
+$(document).ready(function () {
+
+    createGrid(16, 16, 'wrapper');
+    clearGrid();
+    doodleTime();
+
+});
+
+
 // 'divElement' are the divs inside wrapper, let's specify the size of them:
 var divElementSize = {
   height: 20,
@@ -26,7 +35,7 @@ function createGrid(rows, columns, wrapperClass) {
   }
 }
 
-createGrid(16, 16, 'wrapper');
+
 
 
 function newGrid() {
@@ -63,7 +72,7 @@ function clearGrid() {
   });
 }
 
-clearGrid();
+
 
 function doodleTime() {
   $("#draw").click(function() {
@@ -73,4 +82,4 @@ function doodleTime() {
   })
 }
 
-doodleTime();
+
