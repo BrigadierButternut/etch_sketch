@@ -1,5 +1,5 @@
 
-$(window).load(function(){
+$(document).ready(function(){
   // 'divElement' are the divs inside wrapper, let's specify the size of them:var divElementSize = {
   height: 20,
   borderRadius: 10,
