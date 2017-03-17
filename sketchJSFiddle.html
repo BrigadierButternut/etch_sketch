@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-3.1.1.js"></script>
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+
+
+  <style type="text/css">
+    div {
+  background-color: #595b5e;
+  float: left;
+}
+
+.wrapper {
+  background-color: #F0F0F0;
+  border: 1px solid #000;
+}
+
+.draw {
+  background-color: red;
+}
+
+button {
+  display: block;
+  margin-bottom: 20px;
+}
+
+
+
+  </style>
+
+  <title>Grid Test by ArmyGuyGreenTea</title>
+
+
+
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+// 'divElement' are the divs inside wrapper, let's specify the size of them:
+var divElementSize = {
+  height: 20,
+  borderRadius: 10,
+  width: 20
+};
+
+
+function createGrid(rows, columns, wrapperClass) {
+  var locationToAdd = document.getElementsByClassName(wrapperClass)[0];
+
+  /* Dynamically set the size of wrapper so we have 16 divElements per row.
+  	 This way allows us to pass in values other than 16 and maintain control:
+  */
+  locationToAdd.style.width = divElementSize.width * columns + 'px';
+  locationToAdd.style.height = divElementSize.height * rows + 'px';
+
+  for (var rowCount = 0; rowCount < rows; rowCount++) {
+    for (var columnCount = 0; columnCount < columns; columnCount++) {
+      var divElement = document.createElement('div');
+      divElement.style.height = divElementSize.height + 'px';
+      divElement.style.width = divElementSize.width + 'px';
+      divElement.style.borderRadius = divElementSize.borderRadius + 'px';
+      locationToAdd.appendChild(divElement);
+    }
+  }
+}
+
+createGrid(16, 16, 'wrapper');
+
+
+function newGrid() {
+		var widthPix = prompt("How many pixels do you want to form the width of your grid?");
+    var heightPix = prompt("How many pixels do you want to form the height of your grid?");
+
+    var wrapperWidth = $(".wrapper").width();
+    var wrapperHeight = $(".wrapper").height();
+
+    var divWidth = wrapperWidth/widthPix;
+    var divHeight = wrapperHeight/heightPix;
+
+    for (var rowCount = 0; rowCount < heightPix; rowCount++){
+    	for (var columnCount = 0; columnCount < widthPix; columnCount++){
+      	var divElement = document.createElement('div');
+      	divElement.style.height = divHeight + 'px';
+      	divElement.style.width = divWidth + 'px';
+        divElement.style.borderRadius = 10 + 'px';
+        var locationToAdd = document.getElementsByClassName("wrapper")[0];
+      	locationToAdd.appendChild(divElement);
+      }
+    }
+}
+
+
+
+function clearGrid() {
+	$("#clearScreen").click(function(){
+  		$(".wrapper").empty();
+  newGrid();
+  var clearClass = document.getElementsByClassName("draw");
+  while (clearClass.length)
+    clearClass[0].classList.remove("draw");
+  });
+}
+
+clearGrid();
+
+function doodleTime() {
+	$("#draw").click(function(){
+  	$(".wrapper>div").on('mouseover',function(){
+    	$(this).addClass("draw");
+    })
+  })
+}
+
+doodleTime();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}//]]>
+
+</script>
+
+
+</head>
+
+<body>
+  <!-- Don't need doctypes, body, etc... JSFiddle takes care -->
+<button id="clearScreen">
+  Clear Screen
+</button>
+<button id="draw">
+Doodle!
+</button>
+<div class="wrapper"></div>
+
+
+
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "a8ybmk0v"
+    }], "*")
+  }
+</script>
+
+</body>
+
+</html>
